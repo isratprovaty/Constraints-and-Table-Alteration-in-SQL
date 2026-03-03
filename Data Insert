@@ -1,0 +1,16 @@
+INSERT INTO MEMBER (MemberID, FullName, Email, Age, Gender) VALUES
+(1, 'Alice Vance', 'alice@email.com', 25, 'Female'),
+(2, 'Bob Smith', 'bob@email.com', 30, 'Male'),
+(3, 'Charlie Day', 'charlie@email.com', 42, 'Male'),
+(4, 'Diana Prince', 'diana@email.com', 28, 'Female'),
+(5, 'Ethan Hunt', 'ethan@email.com', 35, 'Male');
+
+INSERT INTO BOOK (BookID, Title, ISBN, Price, Status) VALUES
+(101, 'The Great Gatsby', '9780743273565', 15.99, 'AVAILABLE'),
+(102, '1984', '9780451524935', 12.50, 'AVAILABLE'),
+(103, 'The Hobbit', '9780547928227', 20.00, 'AVAILABLE'),
+(104, 'Foundation', '9780553293357', 18.00, 'AVAILABLE'),
+(105, 'Dune', '9780441172719', 25.00, 'AVAILABLE');
+
+INSERT INTO LOAN (LoanID, MemberID, BookID) VALUES
+(1, 1, 101), (2, 2, 102), (3, 3, 103), (4, 4, 104), (5, 5, 105), (6, 1, 103);
