@@ -1,0 +1,17 @@
+-- Add Phone column with default
+ALTER TABLE MEMBER ADD COLUMN Phone VARCHAR(15) NOT NULL DEFAULT 'N/A';
+
+-- Modify Price precision
+ALTER TABLE BOOK MODIFY COLUMN Price DECIMAL(8,2);
+
+-- Change Status to Availability (Same type/default)
+ALTER TABLE BOOK CHANGE COLUMN Status Availability ENUM('AVAILABLE', 'LOANED') DEFAULT 'AVAILABLE';
+
+-- Drop Gender column
+ALTER TABLE MEMBER DROP COLUMN Gender;
+
+-- Add named CHECK for Phone (Ensure it is not an empty string)
+ALTER TABLE MEMBER ADD CONSTRAINT CHK_PhoneNotEmpty CHECK (Phone <> '');
+
+-- Rename LOAN table to BORROW
+ALTER TABLE LOAN RENAME TO BORROW;
