@@ -1,0 +1,11 @@
+-- 1. Error: Duplicate Email (UC_MemberEmail)
+INSERT INTO MEMBER (MemberID, FullName, Email, Age) 
+VALUES (6, 'Clone Person', 'alice@email.com', 20);
+
+-- 2. Error: LOAN with missing/invalid MemberID (FK_LoanMember)
+INSERT INTO LOAN (LoanID, MemberID, BookID) 
+VALUES (7, 99, 101);
+
+-- 3. Error: Negative Price (CHK_BookPrice)
+INSERT INTO BOOK (BookID, Title, ISBN, Price) 
+VALUES (106, 'The Void', '0000000000', -5.00);
