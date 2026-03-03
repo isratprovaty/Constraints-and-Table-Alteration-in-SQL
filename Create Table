@@ -1,0 +1,30 @@
+-- MEMBER Table
+CREATE TABLE MEMBER (
+    MemberID INT PRIMARY KEY,
+    FullName VARCHAR(100) NOT NULL,
+    Email VARCHAR(100) NOT NULL,
+    Age INT,
+    Gender ENUM('Male', 'Female', 'Other'),
+    CONSTRAINT UC_MemberEmail UNIQUE (Email),
+    CONSTRAINT CHK_MemberAge CHECK (Age >= 12)
+);
+
+-- BOOK Table
+CREATE TABLE BOOK (
+    BookID INT PRIMARY KEY,
+    Title VARCHAR(255) NOT NULL,
+    ISBN VARCHAR(20) NOT NULL,
+    Price DECIMAL(10, 2),
+    Status ENUM('AVAILABLE', 'LOANED') DEFAULT 'AVAILABLE',
+    CONSTRAINT UC_BookISBN UNIQUE (ISBN),
+    CONSTRAINT CHK_BookPrice CHECK (Price >= 0)
+);
+
+-- LOAN Table
+CREATE TABLE LOAN (
+    LoanID INT PRIMARY KEY,
+    MemberID INT,
+    BookID INT,
+    CONSTRAINT FK_LoanMember FOREIGN KEY (MemberID) REFERENCES MEMBER(MemberID),
+    CONSTRAINT FK_LoanBook FOREIGN KEY (BookID) REFERENCES BOOK(BookID)
+);
